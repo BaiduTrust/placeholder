@@ -16,6 +16,6 @@ placeholder
         }
     );
 
-### 示例
+### 示例(IE8效果)
 
 <img src="doc/img/placeholder.png" />
