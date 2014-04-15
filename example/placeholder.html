@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>[Please input title]</title>
+    <style type="text/css">
+        .input {
+            width: 150px;
+            font-size: 12px;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 2px;
+            border: solid 1px #e2e2e2;
+            vertical-align: middle;
+            width: 380px;
+            background: #fff;
+            margin: 10px;
+        }
+        
+        textarea {
+            width: 150px;
+            height: 80px;
+            padding: 15px;
+            font-size: 12px;
+            color: green;
+            margin: 10px;
+        }
+
+        /* 修正firefox的占位符颜色，chrome，opera无此问题 */
+        ::-moz-placeholder {
+            color: #a9a9a9;
+        }
+
+        /* 修正IE10的占位符颜色 */
+        :-ms-input-placeholder {
+            color: #a9a9a9;
+        }
+
+        /* 红色占位符 chrome */
+        .input-red::-webkit-input-placeholder {
+            color: red;
+        }
+
+        /* 红色占位符 firefox */
+        .input-red::-moz-placeholder {
+            color: red;
+        }
+
+        /* 红色占位符 IE10 */
+        .input-red:-ms-input-placeholder {
+            color: red;
+        }
+
+        .input-big {
+            height: 40px;
+            padding: 10px 5px;
+            line-height: 40px;
+            font-size: 18px;
+        }
+
+        .input-center {
+            text-align: center;
+        }
+
+        .input-relative {
+            position: relative;
+            left: 10px;
+            top: 10px;
+            z-index: 20;
+        }
+
+        .input-absolute {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+
+        .input-simhei {
+            font-family: 'simhei';
+        }
+
+    </style>
+</head>
+
+<body>
+    <form id="form1" autocomplete="off" method="get">
+        <input type="text" placeholder="默认 占位符 默认 占位符默认 占位符默认 占位符默认 占位符默认 占位符11233455" name="name1" autocomplete="off" style="padding: 5px;"/>
+        <br>
+        <input id="input-red" type="text" class="input input-red" placeholder="红色 占位符" placeholder-color="red" name="name2" autocomplete="off"/>
+        <br>
+        <input id="input-red" type="text" class="input input-simhei" placeholder="黑体 占位符" name="name2" autocomplete="off"/>
+        <br>
+        <input type="text" class="input input-big" placeholder="大尺寸 占位符" name="name3" autocomplete="off"/>
+        <br>
+        <input type="text" class="input input-center" placeholder="中间 占位符" name="name4" autocomplete="off"/>
+        <br>
+        <input type="text" class="input input-relative" placeholder="此输入框为相对定位" name="name6" autocomplete="off"/>
+        <br>
+        <input type="text" class="input input-absolute" placeholder="此输入框为绝对定位" name="name6" autocomplete="off"/>
+        <br>
+        <textarea id="text-textarea" placeholder="textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符textarea 占位符" name="name7"></textarea>
+        <br>
+        <input id="sub-btn" type="submit" value="提交" />
+    </form>
+<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-4-2/esl.js"></script>
+<script type="text/javascript">
+    require.config({
+        baseUrl: '../src'
+    });
+
+    require(['placeholder'], function(module) {
+        module.init();
+    });
+</script>
+</body>
+</html>
