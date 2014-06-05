@@ -111,6 +111,16 @@ define( function ( require ) {
     function setPlaceholder(ele) {
         var placeholder = getPlaceholderAttr(ele);
         if (placeholder.length > 0) {
+            // 若已有一个label，则先remove
+            var prevLabel = ele.previousSibling;
+            if (prevLabel
+                && prevLabel.nodeType === 1
+                && prevLabel.tagName.toLowerCase() === 'label'
+                && prevLabel.className === 'placeholder-label'
+            ) {
+                prevLabel.parentNode && prevLabel.parentNode.removeChild(prevLabel);
+            }
+
             // 生成并插入label节点
             var labelEle = document.createElement('label');
             var eleStyle = ele.currentStyle;
@@ -121,7 +131,10 @@ define( function ( require ) {
             labelEle.style.fontSize = eleStyle.fontSize;
             labelEle.style.fontFamily = eleStyle.fontFamily;
             labelEle.style.textAlign = eleStyle.textAlign;
-            labelEle.style.margin = eleStyle.margin;
+            labelEle.style.marginLeft = eleStyle.marginLeft === 'auto' ? '0' : eleStyle.marginLeft;
+            labelEle.style.marginTop = eleStyle.marginTop === 'auto' ? '0' : eleStyle.marginTop;
+            labelEle.style.marginRight = eleStyle.marginRight === 'auto' ? '0' : eleStyle.marginRight;
+            labelEle.style.marginBottom = eleStyle.marginBottom === 'auto' ? '0' : eleStyle.marginBottom;
 
             labelEle.style.width = eleStyle.width === 'auto'
                 ? ele.offsetWidth - parseInt(eleStyle.paddingLeft)
